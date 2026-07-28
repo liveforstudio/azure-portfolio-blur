@@ -4,6 +4,8 @@ import { SiteNav } from "@/components/site/SiteNav";
 import { Hero } from "@/components/site/Hero";
 import { PortfolioSection } from "@/components/site/PortfolioSection";
 import { Services } from "@/components/site/Services";
+import { Timeline } from "@/components/site/Timeline";
+
 import { Contact } from "@/components/site/Contact";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { listPublicPortfolio } from "@/lib/portfolio.functions";
@@ -48,6 +50,8 @@ function Index() {
         <Hero />
         <PortfolioSection items={items} />
         <Services />
+        <Timeline />
+
         <Contact />
       </main>
       <SiteFooter />

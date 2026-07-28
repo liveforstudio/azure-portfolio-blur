@@ -14,7 +14,7 @@ export function Hero() {
 
       <div
         aria-hidden
-        className="pointer-events-none absolute right-[-6%] top-24 hidden w-[420px] xl:block"
+        className="pointer-events-none absolute right-[3%] top-28 hidden w-[360px] xl:block"
       >
         <video
           src={animatedLogo.url}
@@ -22,9 +22,11 @@ export function Hero() {
           muted
           loop
           playsInline
+          preload="auto"
           className="w-full mix-blend-screen opacity-90"
         />
       </div>
+
 
       <div className="relative mx-auto max-w-5xl">
 

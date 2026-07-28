@@ -14,18 +14,26 @@ export function Hero() {
 
       <div
         aria-hidden
+        className="dotted-grid pointer-events-none absolute inset-0 opacity-40"
+      />
+
+      <div
+        aria-hidden
         className="pointer-events-none absolute right-[3%] top-28 hidden w-[360px] xl:block"
       >
-        <video
-          src={animatedLogo.url}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          className="w-full mix-blend-screen opacity-90"
-        />
+        <div className="relative aspect-square overflow-hidden rounded-full">
+          <video
+            src={animatedLogo.url}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="mask-radial-fade h-full w-full scale-110 object-cover mix-blend-screen opacity-90"
+          />
+        </div>
       </div>
+
 
 
       <div className="relative mx-auto max-w-5xl">

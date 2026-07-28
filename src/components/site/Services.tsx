@@ -1,8 +1,9 @@
 const services = [
   {
-    title: "Retention editing",
-    body: "Fast, intentional pacing that holds attention from the first frame to the last.",
+    title: "Adaptive editing",
+    body: "Every project gets the rhythm it deserves — from calm, cinematic pacing to tight, energetic cuts.",
   },
+
   {
     title: "Motion & effects",
     body: "Animation, overlays and visual gags that give a channel its own personality.",

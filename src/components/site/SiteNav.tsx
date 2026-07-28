@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import logoAsset from "@/assets/lfs-logo.png.asset.json";
+
 
 const links = [
   { id: "home", label: "Home" },

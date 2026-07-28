@@ -1,3 +1,5 @@
+import animatedLogo from "@/assets/lfs-logo-animated.mp4.asset.json";
+
 export function Hero() {
   return (
     <section id="home" className="relative overflow-hidden px-5 pb-24 pt-36 lg:px-12 lg:pt-52">
@@ -10,7 +12,24 @@ export function Hero() {
         className="pointer-events-none absolute bottom-0 right-[-10%] h-[380px] w-[520px] rounded-full bg-accent/20 blur-[130px]"
       />
 
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-[3%] top-28 hidden w-[360px] xl:block"
+      >
+        <video
+          src={animatedLogo.url}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="w-full mix-blend-screen opacity-90"
+        />
+      </div>
+
+
       <div className="relative mx-auto max-w-5xl">
+
         <p className="text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
           Video editing for creators
         </p>

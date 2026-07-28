@@ -34,11 +34,15 @@ export function SiteNav() {
       <div className="flex items-center justify-between gap-4">
         <a
           href="#home"
-          className="text-xs font-medium uppercase tracking-[0.18em] text-foreground transition-opacity hover:opacity-60"
+          className="flex items-center gap-2.5 text-xs font-medium uppercase tracking-[0.18em] text-foreground transition-opacity hover:opacity-60"
         >
-          Live For
-          <span className="block text-muted-foreground lg:ml-2 lg:inline">Studio</span>
+          <img src={logoAsset.url} alt="Live For Studio logo" className="h-9 w-9 object-contain" />
+          <span className="hidden sm:block">
+            Live For
+            <span className="block text-muted-foreground lg:ml-2 lg:inline">Studio</span>
+          </span>
         </a>
+
 
         <nav className="glass-strong fixed left-1/2 top-4 z-50 flex -translate-x-1/2 items-center rounded-full px-1.5 py-1.5 lg:top-7">
           {links.map((l) => (

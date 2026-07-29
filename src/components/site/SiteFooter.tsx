@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import logoAsset from "@/assets/lfs-logo.png.asset.json";
 
 export function SiteFooter() {
@@ -11,9 +10,6 @@ export function SiteFooter() {
         </p>
 
         <p>© {new Date().getFullYear()} — Video editing for creators</p>
-        <Link to="/admin" className="transition-colors hover:text-foreground">
-          Studio login
-        </Link>
       </div>
     </footer>
   );

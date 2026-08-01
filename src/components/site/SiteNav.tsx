@@ -5,8 +5,6 @@ import logoAsset from "@/assets/lfs-logo.png.asset.json";
 const links = [
   { id: "home", label: "Home" },
   { id: "portfolio", label: "Portfolio" },
-  { id: "services", label: "Services" },
-  { id: "process", label: "Process" },
 
   { id: "contact", label: "Contact" },
 ];

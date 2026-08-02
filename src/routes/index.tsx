@@ -47,7 +47,9 @@ function Index() {
       <SiteNav />
       <main>
         <Hero />
+        <Clients />
         <PortfolioSection items={items} />
+
 
 
         <Contact />

@@ -3,6 +3,7 @@ import { useSuspenseQuery, queryOptions } from "@tanstack/react-query";
 import { SiteNav } from "@/components/site/SiteNav";
 import { Hero } from "@/components/site/Hero";
 import { PortfolioSection } from "@/components/site/PortfolioSection";
+import { Clients } from "@/components/site/Clients";
 
 import { Contact } from "@/components/site/Contact";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -46,7 +47,9 @@ function Index() {
       <SiteNav />
       <main>
         <Hero />
+        <Clients />
         <PortfolioSection items={items} />
+
 
 
         <Contact />

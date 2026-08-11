@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "build:netlify": "npm run build",
     "build:netlify-debug": "node scripts/netlify-build-debug.js",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",

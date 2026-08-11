@@ -1,7 +1,7 @@
 const actions = [
   { label: "Book a call", href: "https://cal.com", note: "15 min intro" },
   { label: "Send an email", href: "mailto:hello@liveforstudio.com", note: "hello@liveforstudio.com" },
-  { label: "DM on X", href: "https://x.com", note: "@liveforstudio" },
+  { label: "DM on X", href: "https://x.com/yoleagg", note: "@yoleagg" },
 ];
 
 export function Contact() {

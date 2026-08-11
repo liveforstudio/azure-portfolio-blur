@@ -1,9 +1,26 @@
 import { useMemo, useState } from "react";
 import type { PortfolioItem } from "@/lib/portfolio.functions";
 
-function toEmbed(url: string): string {
+function toEmbed(
+  url: string,
+  options: { autoplay?: boolean; controls?: boolean; mute?: boolean } = {},
+): string {
+  const { autoplay = true, controls = true, mute = false } = options;
   const yt = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{6,})/);
-  if (yt) return `https://www.youtube.com/embed/${yt[1]}?autoplay=1`;
+  if (yt) {
+    const params = new URLSearchParams({
+      autoplay: autoplay ? "1" : "0",
+      controls: controls ? "1" : "0",
+      mute: mute ? "1" : "0",
+      playsinline: "1",
+      rel: "0",
+      showinfo: "0",
+      modestbranding: "1",
+      iv_load_policy: "3",
+      fs: controls ? "1" : "0",
+    });
+    return `https://www.youtube.com/embed/${yt[1]}?${params.toString()}`;
+  }
   const vimeo = url.match(/vimeo\.com\/(\d+)/);
   if (vimeo) return `https://player.vimeo.com/video/${vimeo[1]}?autoplay=1`;
   return url;
@@ -14,12 +31,153 @@ export function PortfolioSection({ items }: { items: PortfolioItem[] }) {
   const [expanded, setExpanded] = useState(false);
   const [playing, setPlaying] = useState<PortfolioItem | null>(null);
 
+  const portfolioItems = useMemo(() => {
+    const normalized = [...items];
+    const documentaryItem = {
+      id: "portfolio-featured-documentary",
+      title: "Why B2 Battle Droid Voices Changed So Much",
+      client: "Order 77",
+      category: "Documentary",
+      thumbnail_url: "",
+      video_url: "https://youtu.be/hekmUh-jcik",
+      sort_order: 0,
+      published: true,
+    };
+    const opinionItem = {
+      id: "portfolio-featured-opinion",
+      title: "A Maldição de Ser o Mais Forte",
+      client: "MCD ANIMES",
+      category: "Opinion",
+      thumbnail_url: "",
+      video_url: "https://youtu.be/UFGtDDAzt0A",
+      sort_order: 1,
+      published: true,
+    };
+
+    if (normalized[0]) {
+      normalized[0] = {
+        ...normalized[0],
+        ...documentaryItem,
+      };
+    } else {
+      normalized.push(documentaryItem);
+    }
+
+    if (normalized[1]) {
+      normalized.splice(1, 0, opinionItem);
+    } else {
+      normalized.push(opinionItem);
+    }
+
+    const thirdItem = {
+      id: "portfolio-featured-third",
+      title: "JOGUEI GARTIC PHONE COM 30 INSCRITOS E DEU NISSO",
+      client: "Opepi",
+      category: "Gameplay",
+      thumbnail_url: "",
+      video_url: "https://www.youtube.com/watch?v=n8e1LClYyfk",
+      sort_order: 2,
+      published: true,
+    };
+
+    const fourthItem = {
+      id: "portfolio-featured-fourth",
+      title: "A BeamNG Video",
+      client: "yoleagg",
+      category: "Documentary",
+      thumbnail_url: "",
+      video_url: "https://youtu.be/ZAG7YxRqFoY",
+      sort_order: 3,
+      published: true,
+    };
+
+    const fifthItem = {
+      id: "portfolio-featured-fifth",
+      title: "A Fallout Trial",
+      client: "Live For Studio",
+      category: "Documentary",
+      thumbnail_url: "",
+      video_url: "https://youtu.be/8vhxXbaiXrU",
+      sort_order: 4,
+      published: true,
+    };
+
+    const sixthItem = {
+      id: "portfolio-featured-sixth",
+      title: "Rock, Lésbicas e Introversão - Bocchi The Rock",
+      client: "MCD ANIMES",
+      category: "Opinion",
+      thumbnail_url: "",
+      video_url: "https://youtu.be/X_AUIr636RE",
+      sort_order: 5,
+      published: true,
+    };
+
+    const seventhItem = {
+      id: "portfolio-featured-seventh",
+      title: "A Brandon Trial",
+      client: "Live For Studio",
+      category: "Documentary",
+      thumbnail_url: "",
+      video_url: "https://youtu.be/gAFbNi7fcuY",
+      sort_order: 6,
+      published: true,
+    };
+
+    if (normalized[2]) {
+      normalized[2] = {
+        ...normalized[2],
+        ...thirdItem,
+      };
+    } else {
+      normalized.push(thirdItem);
+    }
+
+    if (normalized[3]) {
+      normalized[3] = {
+        ...normalized[3],
+        ...fifthItem,
+      };
+    } else {
+      normalized.push(fifthItem);
+    }
+
+    if (normalized[4]) {
+      normalized[4] = {
+        ...normalized[4],
+        ...fourthItem,
+      };
+    } else {
+      normalized.push(fourthItem);
+    }
+
+    if (normalized[5]) {
+      normalized[5] = {
+        ...normalized[5],
+        ...sixthItem,
+      };
+    } else {
+      normalized.push(sixthItem);
+    }
+
+    if (normalized[6]) {
+      normalized[6] = {
+        ...normalized[6],
+        ...seventhItem,
+      };
+    } else {
+      normalized.push(seventhItem);
+    }
+
+    return normalized;
+  }, [items]);
+
   const categories = useMemo(
-    () => ["All", ...Array.from(new Set(items.map((i) => i.category)))],
-    [items],
+    () => ["All", ...Array.from(new Set(portfolioItems.map((i) => i.category)))],
+    [portfolioItems],
   );
 
-  const filtered = filter === "All" ? items : items.filter((i) => i.category === filter);
+  const filtered = filter === "All" ? portfolioItems : portfolioItems.filter((i) => i.category === filter);
   const visible = expanded ? filtered : filtered.slice(0, 6);
 
   return (
@@ -68,7 +226,16 @@ export function PortfolioSection({ items }: { items: PortfolioItem[] }) {
                 className="glass group overflow-hidden rounded-3xl text-left transition-transform hover:-translate-y-1"
               >
                 <div className="relative aspect-video overflow-hidden bg-muted">
-                  {item.thumbnail_url ? (
+                  {item.video_url ? (
+                    <iframe
+                      src={toEmbed(item.video_url, { autoplay: false, controls: false, mute: true })}
+                      title={item.title}
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"
+                      allowFullScreen={false}
+                      className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : item.thumbnail_url ? (
                     <img
                       src={item.thumbnail_url}
                       alt={item.title}
@@ -128,7 +295,7 @@ export function PortfolioSection({ items }: { items: PortfolioItem[] }) {
             </div>
             <div className="aspect-video w-full bg-deep">
               <iframe
-                src={toEmbed(playing.video_url)}
+                src={toEmbed(playing.video_url, { autoplay: false, controls: false, mute: false })}
                 title={playing.title}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"
                 allowFullScreen

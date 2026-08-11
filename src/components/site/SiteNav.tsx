@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import logoAsset from "@/assets/lfs-logo.png.asset.json";
-
 
 const links = [
   { id: "home", label: "Home" },
@@ -36,7 +34,7 @@ export function SiteNav() {
           href="#home"
           className="flex items-center gap-2.5 text-xs font-medium uppercase tracking-[0.18em] text-foreground transition-opacity hover:opacity-60"
         >
-          <img src={logoAsset.url} alt="Live For Studio logo" className="h-9 w-9 object-contain" />
+          <img src="/assets/favicon.png" alt="Live For Studio logo" className="h-9 w-9 scale-200 origin-center object-contain" />
           <span className="hidden sm:block">
             Live For
             <span className="block text-muted-foreground lg:ml-2 lg:inline">Studio</span>

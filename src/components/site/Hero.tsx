@@ -1,5 +1,3 @@
-import animatedLogo from "@/assets/lfs-logo-animated.mp4.asset.json";
-
 export function Hero() {
   return (
     <section id="home" className="relative overflow-hidden px-5 pb-24 pt-36 lg:px-12 lg:pt-52">
@@ -19,24 +17,20 @@ export function Hero() {
 
       <div
         aria-hidden
-        className="pointer-events-none absolute right-[3%] top-28 hidden w-[360px] xl:block"
+        className="pointer-events-none absolute right-[8%] top-1/2 hidden w-[520px] -translate-y-1/2 xl:block"
       >
-        <div className="relative aspect-square overflow-hidden rounded-full">
-          <video
-            src={animatedLogo.url}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="mask-radial-fade h-full w-full scale-110 object-cover mix-blend-screen opacity-90"
-          />
-        </div>
+        <video
+          src="/assets/yoleagg-open-comms-day-6.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="aspect-video w-full rounded-[28px] border border-white/10 object-cover shadow-2xl"
+        />
       </div>
 
-
-
-      <div className="relative mx-auto max-w-5xl">
+      <div className="relative mx-auto max-w-6xl">
 
         <p className="text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
           Video editing for creators
@@ -46,22 +40,20 @@ export function Hero() {
           <br />
           <span className="text-gradient-ice">people watching.</span>
         </h1>
-        <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground">
+        <p className="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground">
           Live For Studio edits long-form, shorts and documentary work for creators who care
           about retention as much as they care about craft.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-2.5">
-          {["On-time delivery", "Retention-first storytelling", "Unlimited revisions"].map(
-            (chip) => (
-              <span
-                key={chip}
-                className="glass rounded-full px-4 py-2 text-xs tracking-wide text-muted-foreground"
-              >
-                {chip}
-              </span>
-            ),
-          )}
+          {["On-time delivery", "Unlimited revisions"].map((chip) => (
+            <span
+              key={chip}
+              className="glass rounded-full px-4 py-2 text-xs tracking-wide text-muted-foreground"
+            >
+              {chip}
+            </span>
+          ))}
         </div>
 
         <a

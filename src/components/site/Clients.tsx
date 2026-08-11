@@ -1,12 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import opepi from "@/assets/opepi.jpg.asset.json";
-import order77 from "@/assets/order77.jpg.asset.json";
-import mcd from "@/assets/mcd-animes.jpg.asset.json";
 
 const clients = [
-  { name: "Opepi", subs: "323K subscribers", url: "https://www.youtube.com/@Opepii", img: opepi.url },
-  { name: "Order 77", subs: "77.1K subscribers", url: "https://www.youtube.com/@TheOrder77", img: order77.url },
-  { name: "MCD ANIMES", subs: "7.14K subscribers", url: "https://www.youtube.com/@MCD_ANIMES", img: mcd.url },
+  { name: "Opepi", subs: "323K subscribers", url: "https://www.youtube.com/@Opepii", img: "/assets/opepi.jpg" },
+  { name: "Order 77", subs: "77.1K subscribers", url: "https://www.youtube.com/@TheOrder77", img: "/assets/order77avatar.jpg" },
+  { name: "MCD ANIMES", subs: "7.14K subscribers", url: "https://www.youtube.com/@MCD_ANIMES", img: "/assets/mcd-animes.jpg" },
 ];
 
 const TAU = Math.PI * 2;
@@ -45,7 +42,7 @@ export function Clients() {
         if (el) {
           el.style.transform = `translate3d(calc(-50% + ${x.toFixed(2)}px), -50%, 0) scale(${scale.toFixed(3)})`;
           el.style.filter = `blur(${blur.toFixed(2)}px)`;
-          el.style.opacity = opacity.toFixed(3);
+          el.style.opacity = opacity.toFixed(3); 
           el.style.zIndex = String(Math.round(depth * 100));
         }
         const label = labelsRef.current[i];

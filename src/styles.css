@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Live For Studio design system — layered blues + glass.
+ * Live For Studio design system — black base with subtle glow.
  * All colors are oklch tokens. Never hardcode colors in components.
  */
 
@@ -66,53 +66,53 @@
     "Segoe UI", system-ui, sans-serif;
 
   /* base */
-  --background: oklch(0.17 0.045 258);
-  --foreground: oklch(0.96 0.012 240);
+  --background: oklch(0.05 0.01 220);
+  --foreground: oklch(0.97 0.01 220);
 
-  /* blue scale */
-  --deep: oklch(0.13 0.05 262);
-  --mid: oklch(0.38 0.1 250);
-  --ice: oklch(0.9 0.045 230);
+  /* black / silver scale */
+  --deep: oklch(0.02 0.004 220);
+  --mid: oklch(0.16 0.012 220);
+  --ice: oklch(0.9 0.02 220);
 
-  --card: oklch(0.24 0.055 255);
-  --card-foreground: oklch(0.96 0.012 240);
-  --popover: oklch(0.2 0.05 257);
-  --popover-foreground: oklch(0.96 0.012 240);
+  --card: oklch(0.09 0.008 220);
+  --card-foreground: oklch(0.97 0.01 220);
+  --popover: oklch(0.07 0.007 220);
+  --popover-foreground: oklch(0.97 0.01 220);
 
-  --primary: oklch(0.75 0.13 232);
-  --primary-foreground: oklch(0.15 0.05 260);
-  --secondary: oklch(0.3 0.06 254);
-  --secondary-foreground: oklch(0.95 0.015 240);
-  --muted: oklch(0.27 0.05 256);
-  --muted-foreground: oklch(0.72 0.035 240);
-  --accent: oklch(0.62 0.15 245);
-  --accent-foreground: oklch(0.97 0.01 240);
+  --primary: oklch(0.82 0.03 220);
+  --primary-foreground: oklch(0.05 0.01 220);
+  --secondary: oklch(0.14 0.01 220);
+  --secondary-foreground: oklch(0.94 0.01 220);
+  --muted: oklch(0.12 0.01 220);
+  --muted-foreground: oklch(0.68 0.01 220);
+  --accent: oklch(0.9 0.03 220);
+  --accent-foreground: oklch(0.04 0.006 220);
   --destructive: oklch(0.62 0.2 22);
-  --destructive-foreground: oklch(0.98 0.005 240);
+  --destructive-foreground: oklch(0.98 0.005 220);
 
-  --border: oklch(0.98 0.02 240 / 12%);
-  --input: oklch(0.98 0.02 240 / 16%);
-  --ring: oklch(0.75 0.13 232);
+  --border: oklch(0.98 0.01 220 / 12%);
+  --input: oklch(0.98 0.01 220 / 16%);
+  --ring: oklch(0.82 0.03 220);
 
-  --glass: oklch(0.98 0.02 240 / 6%);
-  --glass-border: oklch(0.98 0.02 240 / 14%);
+  --glass: oklch(0.98 0.01 220 / 7%);
+  --glass-border: oklch(0.98 0.01 220 / 16%);
 
-  --chart-1: oklch(0.75 0.13 232);
-  --chart-2: oklch(0.62 0.15 245);
-  --chart-3: oklch(0.5 0.12 252);
-  --chart-4: oklch(0.85 0.07 225);
-  --chart-5: oklch(0.35 0.09 258);
+  --chart-1: oklch(0.82 0.03 220);
+  --chart-2: oklch(0.74 0.025 220);
+  --chart-3: oklch(0.6 0.02 220);
+  --chart-4: oklch(0.9 0.02 220);
+  --chart-5: oklch(0.26 0.01 220);
 
-  --sidebar: oklch(0.2 0.05 257);
-  --sidebar-foreground: oklch(0.96 0.012 240);
-  --sidebar-primary: oklch(0.75 0.13 232);
-  --sidebar-primary-foreground: oklch(0.15 0.05 260);
-  --sidebar-accent: oklch(0.27 0.05 256);
-  --sidebar-accent-foreground: oklch(0.96 0.012 240);
-  --sidebar-border: oklch(0.98 0.02 240 / 12%);
-  --sidebar-ring: oklch(0.75 0.13 232);
+  --sidebar: oklch(0.06 0.006 220);
+  --sidebar-foreground: oklch(0.97 0.01 220);
+  --sidebar-primary: oklch(0.82 0.03 220);
+  --sidebar-primary-foreground: oklch(0.05 0.01 220);
+  --sidebar-accent: oklch(0.12 0.01 220);
+  --sidebar-accent-foreground: oklch(0.97 0.01 220);
+  --sidebar-border: oklch(0.98 0.01 220 / 12%);
+  --sidebar-ring: oklch(0.82 0.03 220);
 
-  --shadow-glow: 0 30px 90px -40px oklch(0.75 0.13 232 / 60%);
+  --shadow-glow: 0 30px 90px -40px oklch(0.82 0.03 220 / 45%);
 }
 
 @layer base {
@@ -139,7 +139,7 @@
 }
 
 @utility glass-strong {
-  background-color: oklch(0.98 0.02 240 / 10%);
+  background-color: oklch(0.98 0.01 220 / 10%);
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(40px) saturate(160%);
 }
@@ -148,8 +148,8 @@
   background-image: linear-gradient(
     180deg,
     var(--ice) 0%,
-    var(--primary) 55%,
-    var(--mid) 130%
+    var(--primary) 50%,
+    var(--mid) 120%
   );
   background-clip: text;
   color: transparent;

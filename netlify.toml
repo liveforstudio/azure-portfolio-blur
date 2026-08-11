@@ -3,5 +3,8 @@
   publish = ".output/public"
   functions = ".output/server"
 
+[build.environment]
+  NODE_VERSION = "24"
+
 [context]
   # Use the default environment; adjust if you need specific env vars

@@ -1,8 +1,6 @@
 [build]
   command = "npm run build:netlify"
-  publish = ".output/public"
-  functions = ".output/server"
-
+  
 [build.environment]
   NODE_VERSION = "24"
 
